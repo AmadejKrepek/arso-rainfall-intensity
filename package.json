@@ -1,6 +1,6 @@
 {
     "name": "arso-rainfall-intensity-plus",
-    "version": "1.4.2",
+    "version": "0.0.1",
     "description": "Parser for ARSO rainfall intensity data.",
     "main": "built/index.js",
     "types": "built/index.d.ts",
