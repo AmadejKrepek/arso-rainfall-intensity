@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { ILatestRadarSnapshotsTimelineHttpResult } from './types';
+import logger from './logger/logger';
 
 class RadarDataSnapshot {
     height: number;
@@ -29,11 +30,17 @@ class RadarDataSnapshot {
 }
 
 export async function fetchLatestRadarSnapshotsTimeline(): Promise<RadarDataSnapshot[]> {
-    const apiUrl = 'http://meteo.arso.gov.si/uploads/probase/www/nowcast/inca/inca_si0zm_data.json?prod=si0zm';
-    const response = await axios.get<ILatestRadarSnapshotsTimelineHttpResult[]>(apiUrl, {
-        responseType: 'json'
-    });
-    return response.data.map(item => new RadarDataSnapshot(item));
+    try {
+        const apiUrl = 'http://meteo.arso.gov.si/uploads/probase/www/nowcast/inca/inca_pp_data.json?prod=pp';
+        const response = await axios.get<ILatestRadarSnapshotsTimelineHttpResult[]>(apiUrl, {
+            responseType: 'json'
+        });
+        return response.data.map(item => new RadarDataSnapshot(item));
+    }
+    catch (err) {
+        logger.error(err);
+        return [];
+    }
 }
 
 export async function fetchLatestRadarHailProbabilitySnapshotsTimeline(): Promise<RadarDataSnapshot[]> {
