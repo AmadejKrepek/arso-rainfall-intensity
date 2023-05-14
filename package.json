@@ -1,7 +1,7 @@
 {
-    "name": "arso-rainfall-intensity",
+    "name": "arso-rainfall-intensity-plus",
     "version": "1.4.2",
-    "description": "!!!Only for slovenia!!! Provides simple api for fetching radar images of rainfall intensity and parsing from pixels and converting pixel coordinates to pairs of latitude and longitude or vice versa.",
+    "description": "Parser for ARSO rainfall intensity data.",
     "main": "built/index.js",
     "types": "built/index.d.ts",
     "keywords": [
@@ -12,7 +12,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git@github.com:DKorosec/arso-rainfall-intensity.git"
+        "url": "git@github.com:AmadejKrepek/arso-rainfall-intensity-plus.git"
     },
     "scripts": {
         "test": "echo \"Error: no test specified, yolo.\" && exit 1",
@@ -21,7 +21,7 @@
         "watch": "node ./node_modules/typescript/bin/tsc -w",
         "prepublish": "npm run lint && npm run build"
     },
-    "author": "Dominik Korosec",
+    "author": "Amadej Krepek",
     "license": "ISC",
     "dependencies": {
         "axios": "^0.19.2",
